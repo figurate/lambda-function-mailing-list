@@ -1,0 +1,17 @@
+[subscriber_list]
+    *id {label:"INTEGER"}
+    name {label:"VARCHAR(80)"}
+    subscriber_type {label:"VARCHAR(80)"}
+
+[subscriber]
+    *id {label:"VARCHAR(80)"}
+    name {label:"VARCHAR(80)"}
+
+[subscription]
+    *subscriber_id {label:"VARCHAR(80)"}
+    *list_id {label:"INTEGER"}
+    subscription_date {label:"VARCHAR(80)"}
+    suspended {label:"INTEGER"}
+
+subscriber_list 1--* subscription
+subscriber 1--* subscription

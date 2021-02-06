@@ -29,4 +29,4 @@ run:
 	docker run --rm -it -p 9000:8080 -e AWS_REGION=$(AWS_DEFAULT_REGION) $(REGISTRY)/$(IMAGE_NAME)
 
 diagram:
-	eralchemy -i mailing-list.er -o mailing-list.pdf
+	eralchemy -i subscriber-list.er -o subscriber-list.pdf

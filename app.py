@@ -4,27 +4,35 @@ import boto3
 def handler(event, context):
     print(f'Received event: {event}')
 
-    mailing_list = event['list']
+    subscriber_list = event['list']
     action = event['action'] # subscribe, unsubscribe, list..
-    email_address = event['email']
+    subscriber_id = event['subscriber']
 
     if action == 'subscribe':
-        subscribe(mailing_list, email_address)
+        subscribe(subscriber_list, subscriber_id)
     elif action == 'unsubscribe':
-        unsubscribe(mailing_list, email_address)
+        unsubscribe(subscriber_list, subscriber_id)
     elif action == 'list':
-        list_addresses(mailing_list)
+        list_addresses(subscriber_list)
     else:
         print(f"Unsupported action: {action}")
 
 
-def subscribe(mailing_list, email_address):
+def subscribe(subscriber_list, subscriber_id):
     ddb = boto3.client('dynamodb')
 
 
-def unsubscribe(mailing_list, email_address):
+def unsubscribe(subscriber_list, subscriber_id):
     ddb = boto3.client('dynamodb')
 
 
-def list_addresses(mailing_list):
+def suspend(subscriber_list, subscriber_id):
+    ddb = boto3.client('dynamodb')
+
+
+def activate(subscriber_list, subscriber_id):
+    ddb = boto3.client('dynamodb')
+
+
+def list_addresses(subscriber_list):
     ddb = boto3.client('dynamodb')
